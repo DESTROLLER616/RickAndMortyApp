@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="card mt-5 border border-3 border-info" style="width: 25rem; margin: auto auto;" *ngIf="characters | async as character">
+      <img src="{{ character?.image }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h4 class="card-title fw-bold text-info">{{ character?.name }}</h4>
+        <p class="card-text">{{ character?.status }} - {{ character?.species }} - {{ character?.type }}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><p class="text-muted">Gender:</p> {{ character?.gender }}</li>
+          <li class="list-group-item"><p class="text-muted">Origin:</p> {{ character?.origin?.name }}</li>
+          <li class="list-group-item"><p class="text-muted">Location:</p> {{ character?.location?.name }}</li>
+        </ul>
+  
+        <h5 class="mt-4">List of episodes</h5>
+  
+        <ul class="list-group list-group-flush" *ngFor="let episode of character?.episode">
+          <li class="list-group-item"><a href="">{{ episode }}</a></li>
+        </ul>
+  
+        <a href="#" class="btn btn-outline-info mt-2" (click)="onGoBack()">Go back</a>
+      </div>
+    </div>
+</div>
